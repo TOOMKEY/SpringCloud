@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Config" />
+        <module name="configclient" />
+        <module name="Configeurekaclient" />
+        <module name="Configprovider" />
+        <module name="EurekaRegistry" />
+        <module name="EurekaRegistrySecond" />
+        <module name="StudentConsumer" />
+        <module name="StudentConsumer_Feign" />
+        <module name="StudentConsumer_Ribbon" />
+        <module name="StudentGateway" />
+        <module name="StudentProvider" />
+        <module name="StudentProviderTWO" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ConfigEureka" target="1.8" />
+      <module name="EurekaConfig" target="1.8" />
+      <module name="ProviderConfig" target="1.8" />
+      <module name="SpringCloudConfig" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

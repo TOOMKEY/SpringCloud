@@ -1,0 +1,36 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: Gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: gateway-9001.com    #配置此项时需在hosts文件配置
+    prefer-ip-address: true
+
+#在未配置zuul时，访问路径：http://gateway-9001:com:9001/provider/student
+
+zuul:
+# 忽略单个微服务服务名
+#  ignored-services: provider
+# 加个访问前缀
+  prefix: /tb
+  # 忽略所有(*)微服务名
+  ignored-services: "*"
+  routes:
+    mydept.serviceId: provider #微服务名称
+    mydept.path: /my/**   #该微服务映射名称
+
+# 对当前的微服务做说明
+info:
+  app.name: tb-springcloud
+  company.name: www.tb.cn
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
+
+#在已配置zuul时访问路径：http://gateway-9001.com:9001/tb/my/student

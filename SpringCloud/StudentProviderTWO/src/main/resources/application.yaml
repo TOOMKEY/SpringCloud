@@ -1,0 +1,38 @@
+server:
+  port: 8002
+logging:
+  level:
+    tk.mybatis: DEBUG
+    com.tb: DEBUG
+mybatis:
+  type-aliases-package: com.tb.entity
+  mapper-locations: classpath:mapper/*.xml                      # mapper映射文件
+
+spring:
+  application:
+    name: Provider #在注册中心暴露的名称要一样，才可以负载均衡
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?useSSL=true  # 数据库名称
+    username: root
+    password: 216918
+
+eureka:
+  client:
+    # 客户端注册进eureka服务列表内
+    service-url:
+#      defaultZone: http://127.0.0.1:7001/eureka,http://127.0.0.1:7002/eureka
+      #设置此形式需要去hosts文件修改路径映射
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+  instance:
+#不使用默认的名字 改成我们自己定义的
+    instance-id: Provider8002
+    # 访问路径可以显示IP地址
+    prefer-ip-address: true
+# 对当前的微服务做说明
+info:
+  #该微服务名称
+  app.name: StudentProviderTWO
+  #公司名称
+  company.name: www.TB.cn
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}

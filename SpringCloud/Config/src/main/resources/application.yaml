@@ -1,0 +1,16 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name:  SpringCloud-Config
+  cloud:
+    config:
+      server:
+        git:
+        # 码云上的远程库
+          uri: https://github.com/TOOMKEY/SpringCloud-Config.git
+          # 读取的方式
+          # http://localhost:3344/application-dev.yml
+          # http://localhost:3344/application/dev/master (json串,不好识别)
+          # http://localhost:3344/master/application-dev.yml
